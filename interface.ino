@@ -240,17 +240,17 @@ void incrementWaves()	{
 	if(waves[1])	{
 		return;
 	}
-	else if(waves[3])	{
-		waves[1] = true;
-		saveParameter(PARAM_WAVES + 1, waves[1]);
-	}
 	else if(waves[2])	{
 		waves[3] = true;
 		saveParameter(PARAM_WAVES + 3, waves[3]);
 	}
-	else {
+	else if(waves[1])	{
 		waves[2] = true;
 		saveParameter(PARAM_WAVES + 2, waves[2]);
+	}
+	else {
+		waves[1] = true;
+		saveParameter(PARAM_WAVES + 1, waves[1]);
 	}
 
 	repaintLabels();
@@ -263,17 +263,17 @@ void incrementWaves()	{
 void decrementWaves()	{
 // ------------------------
 	// remove waves
-	if(waves[1])	{
-		waves[1] = false;
-		saveParameter(PARAM_WAVES + 1, waves[1]);
-	}
-	else if(waves[3])	{
+	if(waves[3])	{
 		waves[3] = false;
 		saveParameter(PARAM_WAVES + 3, waves[3]);
 	}
 	else if(waves[2])	{
 		waves[2] = false;
 		saveParameter(PARAM_WAVES + 2, waves[2]);
+	}
+	else if(waves[1])	{
+		waves[1] = false;
+		saveParameter(PARAM_WAVES + 1, waves[1]);
 	}
 	else {
 		return;
