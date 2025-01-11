@@ -237,7 +237,7 @@ void decrementTLevel()	{
 void incrementWaves()	{
 // ------------------------
 	// add more waves
-	if(waves[1])	{
+	if(waves[3])	{
 		return;
 	}
 	else if(waves[2])	{

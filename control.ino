@@ -72,9 +72,13 @@ void captureDisplayCycle(boolean wTimeOut)	{
 	
 	if(hold)	{
 		// update UI labels
+    dumping = true;
 		drawLabels();
 		// dump captured data on serial port
 		dumpSamples();
+		// update UI labels
+    dumping = false;
+		drawLabels();
 	}
 	
 	// freeze display if requested

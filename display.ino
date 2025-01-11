@@ -379,8 +379,13 @@ void drawLabels()	{
 	tft.setCursor(hOffset + 2, 4);
 
 	if(hold)	{
-		tft.setTextColor(ILI9341_WHITE, ILI9341_RED);
-		tft.print(" HOLD ");
+    if(dumping) {
+      tft.setTextColor(ILI9341_YELLOW, ILI9341_BLUE);
+      tft.print(" DUMP ");
+    } else {
+      tft.setTextColor(ILI9341_WHITE, ILI9341_RED);
+      tft.print(" HOLD ");
+    }
 	}
 	else	{
 		tft.setTextColor(ILI9341_GREEN, ILI9341_BLACK);

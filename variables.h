@@ -4,20 +4,21 @@ uint16_t ch2Capture[NUM_SAMPLES] = {0};
 uint16_t bitStore[NUM_SAMPLES] = {0};
 uint16_t sIndex = 0;
 uint16_t tIndex = 0;
-volatile boolean triggered = false;
+volatile bool triggered = false;
 
-volatile boolean keepSampling = true;
+volatile bool keepSampling = true;
 long samplingTime;
-volatile boolean hold = false;
+volatile bool hold = false;
+volatile bool dumping = false;
 // waveform calculated statistics
 struct Stats {
-	boolean pulseValid;
+	bool pulseValid;
 	double avgPW;
 	float duty;
 	float freq;
 	float cycle;
 	
-	boolean mvPos;
+	bool mvPos;
 	float Vrmsf;
 	float Vavrf;
 	float Vmaxf;

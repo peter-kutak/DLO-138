@@ -4,14 +4,14 @@ const int16_t samplingDelay[] =   {-1,  0, 14, 38, 86, 229, 468, 948, 2385, 4776
 const uint16_t timeoutDelayMs[] = {50, 50, 50, 100, 100, 100, 150, 250, 500, 1000, 2000, 4500};
 
 int16_t sDly, tDly;
-boolean minSamplesAcquired;
-boolean triggerRising;
+bool minSamplesAcquired;
+bool triggerRising;
 long prevTime = 0;
 
 // hold pointer references for updating variables in memory
 uint16_t *sIndexPtr = &sIndex;
-volatile boolean *keepSamplingPtr = &keepSampling;
-volatile boolean *triggeredPtr = &triggered;
+volatile bool *keepSamplingPtr = &keepSampling;
+volatile bool *triggeredPtr = &triggered;
 
 
 
@@ -348,8 +348,9 @@ void startSampling(int16_t lDelay)	{
 // ------------------------
 inline void snapMicros()	{
 // ------------------------
-	samplingTime = micros() - prevTime;
-	prevTime = micros();
+  auto m = micros();
+	samplingTime = m - prevTime;
+	prevTime = m;
 	minSamplesAcquired = true;
 }
 
